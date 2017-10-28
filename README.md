@@ -1,2 +1,2 @@
 # Web_Scrapers
-Some webscrapers writtwn by me for making my life easier
+Some webscrapers written by me for making my life easier
