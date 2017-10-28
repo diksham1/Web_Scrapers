@@ -1,12 +1,14 @@
 #The script scrapes data as present on https://coinranking.com
 
-from urllib2 import urlopen as open
+from urllib2 import urlopen as opn
 from bs4 import BeautifulSoup as soup
 
 url = 'https://coinranking.com'
 
-client = open(url)
+client = opn(url)
 page = client.read()
+
+fhand = open('data_crypto.csv','w')
 
 page = soup(page,'html.parser')
 
@@ -22,3 +24,9 @@ for item in container:
     print "Current Price:\t" + cur_price
     print "Market Cap:\t" + market_cap
     print "24 Hr change:\t" + percent_change + '\n'
+
+    fhand.write(name + ',' +  cur_price.replace(',',' ') + ',' + market_cap.replace(',',' ') + ',' + percent_change + '\n')
+
+
+fhand.close()
+
